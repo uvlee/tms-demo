@@ -1,14 +1,12 @@
-import './assets/main.css'
+import './assets/style/main.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import SvgIcon from '@jamescoyle/vue-icon'
 
 const app = createApp(App)
-
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+app.component('SvgIcon', SvgIcon)
+app.use(createPinia()).use(router).directive('click-outside', clickOutside).mount('#app')
